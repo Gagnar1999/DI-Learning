@@ -10,11 +10,12 @@ public class Car {
 
     @Inject
     public Car(Engine engine, Wheels wheel) {
-        this.body = body;
         this.wheel = wheel;
+        this.engine = engine;
     }
 
     public void driving(){
+        engine.start();
         System.out.println("CAR IS DRIVING");
     }
 
