@@ -6,10 +6,12 @@ public class Car {
     @Inject
      Engine engine;
     private Body body;
+    private Wheels wheel;
 
     @Inject
-    public Car(Engine engine, Body body) {
+    public Car(Engine engine, Wheels wheel) {
         this.body = body;
+        this.wheel = wheel;
     }
 
     public void driving(){
