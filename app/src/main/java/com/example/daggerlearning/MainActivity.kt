@@ -1,14 +1,19 @@
 package com.example.daggerlearning
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    lateinit var car : Car
+    @Inject
+    lateinit var car: Car
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        car = DaggerCarComponent.create().car
+        val component = DaggerCarComponent.create()
+        component.inject(this)
+
         car.driving()
     }
 }
