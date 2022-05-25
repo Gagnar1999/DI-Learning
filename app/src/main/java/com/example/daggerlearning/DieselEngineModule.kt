@@ -1,14 +1,17 @@
 package com.example.daggerlearning
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Inject
 
 @Module
-class DieselEngineModule constructor(var horsePower : Int) {
+class DieselEngineModule @Inject constructor(var horsePower: Int) {
 
     @Provides
-    fun provideDieselEngine(): Engine{
-        return DieselEngine(horsePower)
+    fun provideHorsePower(): Int = horsePower
+
+    @Provides
+    fun provideDieselEngine(engine: DieselEngine): Engine {
+        return engine
     }
 }
