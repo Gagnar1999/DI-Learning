@@ -1,5 +1,7 @@
 package com.example.daggerlearning;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 public class PetrolEngine implements Engine {
@@ -13,6 +15,6 @@ public class PetrolEngine implements Engine {
 
     @Override
     public void start() {
-
+        Log.d("TAG", "PETROL ENGINE STARTED ___)(_(_(_"+systemCapacity);
     }
 }

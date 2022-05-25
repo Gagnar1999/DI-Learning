@@ -1,25 +1,12 @@
 package com.example.daggerlearning;
 
+import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
 
 @Module
-public class PetrolEngineModule {
-    private int systemCapacity;
+abstract class PetrolEngineModule {
 
-    PetrolEngineModule(int systemCapacity) {
-        this.systemCapacity = systemCapacity;
-    }
-
-    @Provides
-    int provideSystemCapacity() {
-        return systemCapacity;
-    }
-
-    @Provides
-    Engine providePetrolEngine(PetrolEngine petrolEngine) {
-        return petrolEngine;
-    }
-
+    @Binds
+    abstract Engine bindEngine(PetrolEngine engine);
 }
 
