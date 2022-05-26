@@ -3,13 +3,14 @@ package com.example.daggerlearning;
 import android.util.Log;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class PetrolEngine implements Engine {
     private int systemCapacity;
     private int horsePower;
 
     @Inject
-    PetrolEngine(int systemCapacity, int horsePower) {
+    PetrolEngine(@Named("system capacity") int systemCapacity, @Named("horse power") int horsePower) {
         this.systemCapacity = systemCapacity;
         this.horsePower = horsePower;
     }
