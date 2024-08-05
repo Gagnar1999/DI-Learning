@@ -8,10 +8,9 @@ package org.example.dagger
     * Extend functionality Issue
  */
 
-class UserRegistrationService {
-
-    private val userService = UserService()
-    private val emailService = EmailService()
+class UserRegistrationService(
+    private val userService: UserService, private val emailService: EmailService
+) {
 
 
     fun saveUserAndSendEmail(userName: String, email: String) {
