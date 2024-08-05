@@ -1,16 +1,10 @@
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import org.example.dagger.EmailService
-import org.example.dagger.UserRegistrationService
-import org.example.dagger.UserService
+import org.example.dagger.DaggerUserRegistrationServiceComponent
+
 
 fun main() {
-    val userService = UserService()
-    val emailService = EmailService()
+    val component = DaggerUserRegistrationServiceComponent.create()
+    val userRegistrationService = component.getUserRegistrationService()
 
-    val userRegService = UserRegistrationService(userService, emailService)
-
-    userRegService.saveUserAndSendEmail("Gagnar1999", "gagannarang1999@gmail.com")
+    userRegistrationService.registerUser("Gagnar1999", "gagannarang1999@gmail.com")
+    println("Helll")
 }

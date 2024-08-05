@@ -1,5 +1,7 @@
 package org.example.dagger
 
+import javax.inject.Inject
+
 /*
     Issues with this class
     * Violations of SOLID Principles,
@@ -8,12 +10,13 @@ package org.example.dagger
     * Extend functionality Issue
  */
 
-class UserRegistrationService(
-    private val userService: UserService, private val emailService: EmailService
+class UserRegistrationService @Inject constructor(
+    private val userService: UserService,
+    private val emailService: EmailService
 ) {
 
 
-    fun saveUserAndSendEmail(userName: String, email: String) {
+    fun registerUser(userName: String, email: String) {
         userService.storeUser(userName, email)
         emailService.sendEmail(userName, email)
     }
