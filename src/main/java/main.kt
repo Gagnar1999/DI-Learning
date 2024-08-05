@@ -1,10 +1,14 @@
 import org.example.dagger.DaggerUserRegistrationServiceComponent
+import org.example.dagger.MainActivity
 
 
 fun main() {
-    val component = DaggerUserRegistrationServiceComponent.create()
-    val userRegistrationService = component.getUserRegistrationService()
 
-    userRegistrationService.registerUser("Gagnar1999", "gagannarang1999@gmail.com")
-    println("Helll")
+    val instance = MainActivity()
+    instance.run()
+}
+
+fun bytesToMegabytes(bytes: Long): Long {
+    val MEGABYTE = 1024L * 1024L
+    return bytes / MEGABYTE
 }
