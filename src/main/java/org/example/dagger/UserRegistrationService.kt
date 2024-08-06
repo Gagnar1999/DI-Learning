@@ -1,6 +1,7 @@
 package org.example.dagger
 
 import javax.inject.Inject
+import javax.inject.Named
 
 /*
     Issues with this class
@@ -17,7 +18,7 @@ import javax.inject.Inject
  */
 class UserRegistrationService @Inject constructor(
     private val userService: UserRepository,
-    private val notificationService: NotificationService
+    @Named("message") private val notificationService: NotificationService
 ) {
 
 
