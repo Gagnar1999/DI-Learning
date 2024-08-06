@@ -15,6 +15,8 @@ interface UserRegistrationServiceComponent {
 
     fun inject(mainActivity : MainActivity)
 
+    fun getMessageService() : MessageService
+
 
     @Component.Factory
     interface Factory{
