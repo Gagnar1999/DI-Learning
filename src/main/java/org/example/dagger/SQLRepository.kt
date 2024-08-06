@@ -6,7 +6,7 @@ interface UserRepository {
     fun saveUser(email: String, password: String)
 }
 
-class UserService @Inject constructor() : UserRepository {
+class SQLRepository @Inject constructor() : UserRepository {
 
 
     override fun saveUser(email: String, password: String) {
@@ -14,7 +14,7 @@ class UserService @Inject constructor() : UserRepository {
     }
 }
 
-class FirebaseService @Inject constructor(): UserRepository{
+class FirebaseRepository: UserRepository{
 
     override fun saveUser(email: String, password: String) {
         println("User Saved in Firebase Storage.")
