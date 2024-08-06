@@ -1,5 +1,6 @@
 package org.example.dagger
 
+import org.example.dagger.annotations.MessageQualifier
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -18,7 +19,7 @@ import javax.inject.Named
  */
 class UserRegistrationService @Inject constructor(
     private val userService: UserRepository,
-    @Named("message") private val notificationService: NotificationService
+    @MessageQualifier private val notificationService: NotificationService
 ) {
 
 

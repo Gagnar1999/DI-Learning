@@ -6,8 +6,7 @@ interface NotificationService{
     fun  send(to : String, from : String, body : String)
 }
 
-class EmailService @Inject constructor() : NotificationService{
-
+class EmailService(private val retryCount : Int) : NotificationService{
 
     override fun send(to: String, from: String, body: String) {
         println("Email Sent")

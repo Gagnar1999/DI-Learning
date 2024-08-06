@@ -6,7 +6,7 @@ import dagger.Provides
 
 
 @Module
-abstract class UserRepositoryModule {
+abstract class UserRepositoryModule(private val data : String) {
 
     /*
         Binds annotation used here because dagger can create SQLRepository Object by own because it has @Inject Annotations

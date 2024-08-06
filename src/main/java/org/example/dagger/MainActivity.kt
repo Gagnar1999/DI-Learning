@@ -4,13 +4,14 @@ import javax.inject.Inject
 
 class MainActivity {
     @Inject
-    lateinit var userRegistrationService : UserRegistrationService
+    lateinit var userRegistrationService: UserRegistrationService
 
 
-
-    fun run(){
+    fun run() {
         println("Running Our Main Activity")
-        val component = DaggerUserRegistrationServiceComponent.builder().build()
+
+        val component = DaggerUserRegistrationServiceComponent.factory().create(3)
+
         component.inject(this)
         userRegistrationService.registerUser("gagan", "Gagannarang1999@gmail.com")
 
