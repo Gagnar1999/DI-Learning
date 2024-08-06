@@ -2,8 +2,22 @@ package org.example.dagger
 
 import javax.inject.Inject
 
-class EmailService @Inject constructor(){
-    fun sendEmail(userName: String, email: String) {
-        println("Email send to $email E-Mail ID. for Username-$userName")
+interface NotificationService{
+    fun  send(to : String, from : String, body : String)
+}
+
+class EmailService @Inject constructor() : NotificationService{
+
+
+    override fun send(to: String, from: String, body: String) {
+        println("Email Sent")
     }
+}
+
+
+class MessageService @Inject constructor() : NotificationService{
+    override fun send(to: String, from: String, body: String) {
+        println("Message Sent")
+    }
+
 }

@@ -2,9 +2,22 @@ package org.example.dagger
 
 import javax.inject.Inject
 
-class UserService @Inject constructor() {
+interface UserRepository {
+    fun saveUser(email: String, password: String)
+}
 
-    fun storeUser(userName : String, emailId : String){
-        println("User Saved in DB")
+class UserService @Inject constructor() : UserRepository {
+
+
+    override fun saveUser(email: String, password: String) {
+        println("User Saved in Local Storage")
     }
+}
+
+class FirebaseService @Inject constructor(): UserRepository{
+
+    override fun saveUser(email: String, password: String) {
+        println("User Saved in Firebase Storage.")
+    }
+
 }
