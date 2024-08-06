@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import org.example.dagger.annotations.MessageQualifier
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
 class NotificationServiceModule() {
@@ -17,6 +18,7 @@ class NotificationServiceModule() {
     }
 
 
+    @Singleton
     @Named("email")
     @Provides
     fun getEmailService(retryCount : Int) : NotificationService{

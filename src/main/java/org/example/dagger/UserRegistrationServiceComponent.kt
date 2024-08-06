@@ -2,7 +2,9 @@ package org.example.dagger
 
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [NotificationServiceModule::class, UserRepositoryModule::class])
 interface UserRegistrationServiceComponent {
 
